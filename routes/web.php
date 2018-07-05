@@ -40,3 +40,19 @@ Route::group(['middleware' => ['auth']], function () {
 
 });
 
+/*Route::get('/auth/callback', function (\Illuminate\Http\Request $request) {
+    $http = new GuzzleHttp\Client;
+
+    $response = $http->post('http://mb.com/oauth/token', [
+        'form_params' => [
+            'grant_type' => 'authorization_code',
+            'client_id' => '9',  // your client id
+            'client_secret' => 'xDzHRBRNjd36b8yPGiMGDGjsN6cYOGh8ANhOfbQ5',   // your client secret
+            'redirect_uri' => 'http://mb.com/auth/callback',
+            'code' => $request->code,
+        ],
+    ]);
+
+    return json_decode((string) $response->getBody(), true);
+});*/
+
