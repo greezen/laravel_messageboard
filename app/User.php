@@ -37,6 +37,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function AuthAccessToken(){
+        return $this->hasMany('\App\OauthAccessToken');
+    }
+
     /**
      * 获取用户状态
      * @param null $flag
