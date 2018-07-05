@@ -60,7 +60,7 @@ class UserController extends Controller
 
     /**
      * 退出登录
-     * @return \Illuminate\Http\JsonResponse
+     * @return string
      */
     public function logout()
     {
