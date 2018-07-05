@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\helpers\CommonHelper;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
@@ -21,14 +22,14 @@ class UserController extends Controller
             return response()->json(['success' => $success]);
         }
         else{
-            return response()->json(['error'=>'Unauthorised'], 401);
+            return CommonHelper::json_success('Unauthorised', [], '401');
         }
     }
 
     /**
      * 注册
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\JsonResponse|string
      */
     public function register(Request $request)
     {
@@ -54,7 +55,7 @@ class UserController extends Controller
         $success['token'] =  $user->createToken('MyApp')->accessToken;
         $success['name'] =  $user->name;
 
-        return response()->json(['success'=>$success]);
+        return CommonHelper::json_success('', $success);
     }
 
     /**
@@ -67,7 +68,7 @@ class UserController extends Controller
             \Auth::guard('api')->user()->token()->delete();
         }
 
-        return response()->json(['message' => '登出成功', 'status_code' => 200, 'data' => null]);
+        return CommonHelper::json_success('登出成功');
 
     }
 }
