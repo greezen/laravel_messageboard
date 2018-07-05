@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     /**
      * 登录
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\JsonResponse|string
      */
     public function login(){
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
