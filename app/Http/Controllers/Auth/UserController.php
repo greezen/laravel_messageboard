@@ -52,7 +52,7 @@ class UserController extends Controller
         $input['role'] = User::ROLE_MEMBER;
         $input['status'] = User::STATUS_Y;
         $user = User::create($input);
-        $success['token'] =  $user->createToken('MyApp')->accessToken;
+        $success['token'] =  $user->createToken('message_board')->accessToken;
         $success['name'] =  $user->name;
 
         return CommonHelper::json_success('', $success);
